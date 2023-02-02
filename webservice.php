@@ -18,8 +18,8 @@ $dbname= "id20211132_doctorsdb";
 $conn=new mysqli($host, $dbuser, $dbpass, $dbname);
 
 $sql= "SELECT ID, DoctorName, DoctorInfo, DoctorImage from doctors
-        where DoctorArea like '%".$search_area."%' and
-        DcotorCategory like '%".$search_category."%' ";
+        where DoctorCategory like '%".$search_category."%' and 
+         DoctorArea like '%".$search_area."%'  ";
 
 $result= $conn->query($sql);
 
@@ -35,7 +35,7 @@ if($result->num_rows > 0){
         $doctor_data["DocInfo"]= $doctorinfo;
         $doctor_data["DocImage"]= $doctorimage;
 
-        $data[$doctorId]= $doctor_data;
+        $data[$doctorid]= $doctor_data;
     }
 
     $data["Result"]="True";

@@ -1,7 +1,9 @@
 body {
   margin: 0;
   line-height: normal;
+  
 }
+
 .descsectionbg {
   border-radius: var(--br-sm);
   background-color: var(--color-aliceblue);
@@ -583,6 +585,11 @@ body {
   width: 37.93px;
   height: 17px;
 }
+
+button:hover{
+  transform: scale(1.1);
+}
+
 .signupbtn {
   cursor: pointer;
   border: 0;
@@ -594,6 +601,7 @@ body {
   width: 59.9px;
   height: 20px;
 }
+
 .aboutusbtn,
 .contactbtn,
 .homebtn,
