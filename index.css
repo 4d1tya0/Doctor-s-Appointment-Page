@@ -1,7 +1,11 @@
 body {
   margin: 0;
   line-height: normal;
-  
+  zoom: 105%;
+}
+
+.bannersection>button, .navbar>button, .servicesection> div:hover{
+  transform: scale(1.1);
 }
 
 .descsectionbg {
@@ -584,10 +588,6 @@ body {
   text-align: left;
   width: 37.93px;
   height: 17px;
-}
-
-button:hover{
-  transform: scale(1.1);
 }
 
 .signupbtn {

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="./global.css" />
     <link rel="stylesheet" href="./index.css" />
@@ -14,6 +15,8 @@
   </head>
   <body>
     <div class="descsection-parent">
+
+
       <div class="descsection">
         <div class="descsectionbg"></div>
         <div class="descarea">
@@ -57,7 +60,9 @@
           </div>
         </div>
       </div>
-      <div class="servicesection">
+
+
+      <div id="searchSection" class="servicesection">
         <div class="servicesectionbg"></div>
         <div class="solutionsection">
           <b class="solutiontitle">Get your solution</b
@@ -115,6 +120,8 @@
         </div>
         <b class="servicesectiontitle">4 easy steps to get your solution</b>
       </div>
+
+
       <div class="bannersection">
         <div class="bannersectionbg"></div>
         <div class="bannerimg">
@@ -125,18 +132,21 @@
           <div class="formareabg"></div>
           <form class="form" method="post">
             <div class="formbg"></div>
-            <button class="searchbtn" id="searchBtn">
+            <button  type='button' class="searchbtn" id="searchBtn">
               <div class="searchbtn1"></div>
               <img
+                id="searchtrigg"
                 class="search-1-icon"
                 alt=""
                 src="public/search-1@2x.png"
               /></button
             ><input
+              id="doctor_area"
               class="locationimput"
               type="text"
               placeholder="Select Location"
             /><input
+              id="doctor_type"
               class="categoryinput"
               type="text"
               placeholder="Select Category"
@@ -156,6 +166,8 @@
           >
         </div>
       </div>
+
+
       <div class="navbar">
         <div class="menusection"></div>
         <div class="menubtn">
@@ -176,9 +188,24 @@
           >
         </div>
       </div>
+
+
     </div>
 
     <script>
+
+      $(document).ready(function(){
+        $("#searchBtn").click(function(){
+          
+          var doctor_type=$("#doctor_type").val();
+          var doctor_area=$("#doctor_area").val();
+
+          $.post("webservice1.php", {search: doctor_type, area: doctor_area}, function(response){
+            $("#searchSection").html(response);
+          });
+        })
+      });
+
       var seeDoctorsBox = document.getElementById("seeDoctorsBox");
       if (seeDoctorsBox) {
         seeDoctorsBox.addEventListener("click", function () {
@@ -214,19 +241,6 @@
         });
       }
       
-      var searchBtn = document.getElementById("searchBtn");
-      if (searchBtn) {
-        searchBtn.addEventListener("click", function () {
-          window.open("/");
-        });
-      }
-      
-      var signupBtn = document.getElementById("signupBtn");
-      if (signupBtn) {
-        signupBtn.addEventListener("click", function () {
-          window.location.href = "signUp.html";
-        });
-      }
       
       var logoContainer = document.getElementById("logoContainer");
       if (logoContainer) {
